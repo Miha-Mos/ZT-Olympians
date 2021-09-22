@@ -1,0 +1,298 @@
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// Reset Css
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, summary, time, mark, audio, video, button, content {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	zoom: 1;
+}
+button {
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	&:focus {
+		outline: none;
+	}
+}
+a {
+	cursor: pointer;
+	&:visited {
+		color: transparent;
+	}
+    text-decoration: none;
+}
+img{user-select: none;}
+li{list-style: none;}
+
+//Overall
+body{
+	font-family: "Rubik", sans-serif;
+	font-size: 1em;
+}
+
+//Container
+.container{
+    max-width: 1100px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+//Header
+.header{
+	&__wrapper{
+		padding: 20px 0px;
+		border-bottom: 2px solid rgba(90,118,112, 0.8);
+	}
+	&__content{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__logo{
+		img{
+            width: 100%;
+        }
+	}
+	.nav{
+		&__block{
+			display: flex;
+		}
+		&__item{
+			margin: 0px 10px;
+			a{
+				font-size: 1.1em;
+				color: rgb(90, 118, 112);
+				position: relative;
+				display: inline-block;
+				font-weight: 400;
+				backface-visibility: hidden; 
+				-webkit-backface-visibility: hidden; 
+				padding-bottom: 2px;
+				&:before{
+					content: "";
+					position: absolute;
+					width: 100%;
+					bottom: 0;
+					border-bottom: 2px solid rgba(90, 118, 112, 0.8);
+					transition: transform 0.5s;
+					transform: scale(0);
+					transform-origin: right;
+				}
+				&:hover::before{
+					transform: scale(1);
+					transform-origin: left;
+				}
+			}
+		}
+	}
+}
+
+//Intro
+.intro{
+	&__content{
+		position: relative;
+		img{
+			width: 100%;
+			display: flex;
+			margin: 0 auto;
+		}
+	}
+	&__title{
+        user-select: none;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		text-transform: uppercase;
+		text-align: center;
+		color: #454545;
+		font-size: 4em;
+		font-weight: bold;
+		z-index: 10;
+		-webkit-text-stroke: 3px white;
+		&::before{
+			position: absolute;
+			content: "";
+			left: 5%;
+			z-index: -1;
+			border-top: 80px solid rgba(90,118,112, 0.8);
+			border-right: 30px solid transparent;
+			border-left: 30px solid transparent;
+			width: 90%;
+			height: 1.2em;
+		}
+	}
+}
+
+//Olympians
+.olympians{
+	&__wrapper{
+		padding-bottom: 80px;
+	}
+	&__blocks{
+		padding-top: 15vh;
+	}
+	&__title{
+		text-align: center;
+		h1{
+			font-size: 3em;
+		}
+	}
+	.block{
+		&__wrapper{
+			display: flex;
+			align-items: center;
+		}
+		&__img{
+			width: 30%;
+			img{
+				display: flex;
+				width: 100%;
+				min-height: 300px;
+				max-height: 330px;
+				object-fit: cover;
+				object-position: center;
+				transform: scale(1.1);
+			}
+		}
+		&:nth-child(1),
+		&:nth-child(3){
+			background-color: rgba(204, 204, 204, 0.2);
+		}
+		&:nth-child(2),
+		&:nth-child(4){
+			.block{
+				&__wrapper{
+					flex-direction: row-reverse;
+				}
+				&__description_wrap{
+					margin: 20px 50px 20px 20px;
+				}
+				&__title,
+				&__text{
+					text-align: right;
+				}
+				&__btn{
+					justify-content: flex-end;
+				}
+			}
+		}
+		&__description{
+			width: 60%;
+			&_wrap{
+				margin: 30px 20px 30px 50px;
+			}
+		}	
+		&__text{
+			margin-top: 10px;
+		}
+		&__btn{
+			margin-top: 20px;
+			display: flex;
+			a{
+				color: white;
+				letter-spacing: 1px;
+				padding: 10px 20px;
+				background-color: rgb(90, 118, 112);
+				transition: background-color 0.2s;
+				&:hover{
+					background-color: rgba(1,1,1,0.8);
+				}
+			}
+		}
+	}
+}
+
+//Footer
+.footer{
+	padding: 20px 0px;
+	background-color: rgb(30, 30, 30);
+	&__logo{
+		width: 300px;
+		display: flex;
+		img{
+			width: 100%;
+		}
+	}
+	&__content{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+//Media
+
+@media screen and (max-width: 768px) {
+	.intro__title{
+		font-size: 3em;
+		&::before{
+			border-top: 60px solid rgba(90,118,112,.8);
+		}
+	}
+	.intro{
+		&__content{
+			img{
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
+	.olympians{
+		&__blocks{
+			padding-top: 10vh;
+		}
+		.block{
+			&__wrapper{
+				flex-direction: column !important;
+				padding-top: 30px;
+				padding-bottom: 30px;
+			}
+			&__img {
+				width: unset;
+				max-width: 400px;
+				min-height: unset;
+				img{
+					width: 100%;
+					transform: scale(1);
+				}
+			}
+			&:nth-child(2),
+			&:nth-child(4){
+				.block__text,
+				.block__title{
+					text-align: center;
+				}
+				.block__btn{
+					justify-content: center;
+				}
+			}
+			&__description{
+				width: unset;
+				max-width: 500px;
+			}
+			&__description_wrap{
+				margin: 30px 0px 0px 0px !important;
+				text-align: center !important;
+			}
+			&__btn{
+				justify-content: center;
+			}
+		}
+	}
+}
+@media screen and (max-width: 425px) {
+	.olympians__title h1{
+		font-size: 2.5em;
+	}
+	.intro__title::before{
+		width: 100%;
+		left: 0;
+	}
+}
